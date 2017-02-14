@@ -13,6 +13,10 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
+  def edit
+    @user = Article.find(params[:id])
+  end
+
   def create
     @user = User.new(user_params)#(params.require(:user).permit(:name))
 

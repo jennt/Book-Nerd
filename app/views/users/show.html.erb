@@ -3,7 +3,37 @@
   <%= @user.name %>
 </p>
 
+<h2>Books</h2>
+<% @user.books.each do |book| %>
+  <p>
+    <strong>Title:</strong>
+    <%= book.title %> <strong>Read:</strong>
+    <%= book.read %>
+  </p>
+
+  <!-- <p>
+    <strong>Read:</strong>
+    <%= book.read %>
+  </p> -->
+<% end %>
+
+<h2>Add a book:</h2>
+<%= form_for([@user, @user.books.build]) do |f| %>
+  <p>
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </p>
+
+  <p>
+    <%= f.label :read %><br>
+    <%= f.text_field :read %>
+  </p>
+
+  <p>
+  <%= f.submit %>
+  </p>
+
+<% end %>
+
 <%= link_to "Edit", edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %> |
-<%= link_to 'Delete', user_path(@user), method: :delete,
-data: { confirm: 'Are you sure?' } %>
+<%= link_to 'Back', users_path %>

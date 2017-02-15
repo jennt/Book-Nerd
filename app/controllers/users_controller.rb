@@ -14,7 +14,7 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = Article.find(params[:id])
+    @user = User.find(params[:id])
   end
 
   def create
@@ -26,6 +26,23 @@ class UsersController < ApplicationController
       render 'new'
     end
     # render plain: params[:user].inspect
+  end
+
+  def update
+    @user = User.find(params[:id])
+
+    if @user.update(user_params)
+      redirect_to @user
+    else
+      render 'edit'
+    end
+  end
+
+  def destroy
+    @user = User.find(params[:id])
+    @user.destroy
+
+    redirect_to users_path
   end
 
   private

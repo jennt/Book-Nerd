@@ -25,7 +25,6 @@ class UsersController < ApplicationController
     else
       render 'new'
     end
-    # render plain: params[:user].inspect
   end
 
   def update

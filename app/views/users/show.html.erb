@@ -11,10 +11,10 @@
     <%= book.read %>
   </p>
 
-  <!-- <p>
-    <strong>Read:</strong>
-    <%= book.read %>
-  </p> -->
+  <p>
+    <%= link_to 'Delete', [book.user, book], method: :delete, data: { confirm: 'Are you sure?' } %>
+  </p>
+
 <% end %>
 
 <h2>Add a book:</h2>
